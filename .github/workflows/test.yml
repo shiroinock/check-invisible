@@ -1,0 +1,13 @@
+name: test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  shell:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ./test/check.sh
+      - run: ./check-invisible.sh --all check-invisible.sh README.md LICENSE test/check.sh
